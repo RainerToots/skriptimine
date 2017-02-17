@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+#
+#
+# Skript loob kasutaja ilma paroolita
+# RAINER TOOTS ISP15 2017
+#
+#echo -n "Sisesta kasutajanimi: "
+#read kasutaja
+# (Kasutaja nime sisestamine)
+#
+# Teine Versioon (Loob kasutajad failist lugedes)
+kasutaja=$1
+useradd $kasutaja -m -s /bin/bash
+

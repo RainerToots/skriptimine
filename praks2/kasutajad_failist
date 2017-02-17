@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Kasutaja lisamise skript
+#
+# ESIMENE VERSIOON (Võtab failist "kasutajad" kasutajate nimed ja loob kasutajad nende nimedega
+# lisa_kasutaja skripti abil)
+#
+#	if [ -f kasutajad -a -r kasutajad ]; then
+#		echo "Fail on korras"
+#	for rida in $(cat kasutajad)
+#	do
+#		sh lisa_kasutaja $rida
+#	done
+#else
+#	echo "Fail ei ole korras"
+#fi
+# TEINE VERSIOON (Võtab failist kasutajad kasutaja nimed ning loob kasutajad ja paroolid)
+#
+
+
+failinimi="kasutajad"
+        for rida in $(cat $failinimi)
+        do
+        kasutajanimi=$(echo "$rida" | cut -f1 -d:)
+        sh lisa_kasutaja $kasutajanimi
+        echo "$rida" | chpasswd
+done
+
